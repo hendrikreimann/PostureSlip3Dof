@@ -554,7 +554,8 @@ function runSimulation(hObject, eventdata) %#ok<INUSD>
     
     % if we do not want life update, we want a progress bar
     if (isDrawing == false) && withGui
-        progressBar = waitbar(0, 'Trying not to fall down...', 'Position', [ 1200, 1600, 400, 60 ]);
+%         progressBar = waitbar(0, 'Trying not to fall down...', 'Position', [ 1200, 1600, 400, 60 ]);
+        progressBar = waitbar(0, 'Trying not to fall down...');
     end
     
     exploded = false;
@@ -1663,7 +1664,7 @@ end
 
 function plotVisibilityCheckBoxes = createControlFigure()
     % create GUI
-    controlFig = figure('Position', [ 1200, 1000, 350, 120 ], ...
+    controlFig = figure('units', 'normalized', 'Position', [0.7, 0.65, 0.3, 0.25], ...
                     'Name', 'Kommandozentralissimo', ...
                     'MenuBar', 'none', 'NumberTitle', 'off');
 	width = 1/5;

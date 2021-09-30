@@ -62,7 +62,7 @@ classdef PostureTimeSeriesFigure
             obj.mContactDofs = postureTimeSeries.mContactDofs;
             obj.mBodyDofs = postureTimeSeries.mBodyDofs;
             obj.mNumberOfJoints = postureTimeSeries.N;
-            obj.mFigure = figure('Position', [ 10, 10, figureWidth, figureHeight ], 'Name', 'time series');
+            obj.mFigure = figure('units', 'normalized', 'Position', [0.0, 0.05, 0.7, 0.8], 'Name', 'time series');
             obj.mIsDrawingJoint = ones(1, obj.mBodyDofs);
 
             % horizontal positions

@@ -25,7 +25,7 @@ classdef StickFigure
             
             % stick figure
             obj.mSceneBound = [ -0.25; 2.25; 0; 2.5 ];
-            obj.mFigure = figure('Position', [ 1250, 1100, 400, 400 ], ...
+            obj.mFigure = figure('units', 'normalized', 'Position', [0.7, 0.05, 0.3, 0.5], ...
                     'Name', 'scene');
             obj.mAxes = axes('Position', [ 0.1 0.1 0.8 0.8 ]);
             hold on;
