@@ -473,10 +473,10 @@ end
 runSimulation(0, 0);
 % toc
 
-save plant.mat plant;
-save parameters.mat parameters;
-save noise.mat noise;
-save postureTimeSeries.mat postureTimeSeries;
+% save plant.mat plant;
+% save parameters.mat parameters;
+% save noise.mat noise;
+% save postureTimeSeries.mat postureTimeSeries;
 
 %% main
 

@@ -128,28 +128,28 @@ classdef PostureTimeSeriesFigure
             initialJointAngles = postureTimeSeries.theta(1:obj.mBodyDofs, 1);
             Fs = 120;
             jointAngles = [];
-            load jointAngles_3DoF.mat
-            realData_eyesOpen = jointAngles{2, 2, 1};
-            episodeStart_human = fullTimeEpisodeStart * Fs + 1;
-            episodeEnd_human = min(episodeStart_human + fullTimeEpisodeLength * Fs - 1, size(realData_eyesOpen, 2));
-            angles_human = realData_eyesOpen(:, episodeStart_human : episodeEnd_human);
-            obj.humanTimeData = 1/Fs : 1/Fs : (episodeEnd_human - episodeStart_human + 1)/Fs;
+%             load jointAngles_3DoF.mat
+%             realData_eyesOpen = jointAngles{2, 2, 1};
+%             episodeStart_human = fullTimeEpisodeStart * Fs + 1;
+%             episodeEnd_human = min(episodeStart_human + fullTimeEpisodeLength * Fs - 1, size(realData_eyesOpen, 2));
+%             angles_human = realData_eyesOpen(:, episodeStart_human : episodeEnd_human);
+%             obj.humanTimeData = 1/Fs : 1/Fs : (episodeEnd_human - episodeStart_human + 1)/Fs;
 
             subplot(3, 2, 3);
             hold on;
             obj.thetaPlots = zeros(obj.mBodyDofs, 1);
             obj.uJointPlots = zeros(obj.mBodyDofs, 1);
             obj.lambdaPlots = zeros(obj.mBodyDofs, 1);
-            obj.humanAngleData = zeros(obj.mBodyDofs, length(obj.humanTimeData));
+%             obj.humanAngleData = zeros(obj.mBodyDofs, length(obj.humanTimeData));
             for l = 1 : 3
-                obj.humanAngleData(l, :) = angles_human(l, :) - mean(angles_human(l, :)) + initialJointAngles(l);
+%                 obj.humanAngleData(l, :) = angles_human(l, :) - mean(angles_human(l, :)) + initialJointAngles(l);
             end
             for l = 4 : obj.mBodyDofs
-                obj.humanAngleData(l, :) = zeros(size(angles_human(1, :)));
+%                 obj.humanAngleData(l, :) = zeros(size(angles_human(1, :)));
             end
             for l = 1 : obj.mBodyDofs
                 obj.thetaPlots(l) = plot(0, 0, 'color', [1, (l-1)/obj.mBodyDofs, 0], 'Linewidth', 2, 'DisplayName', int2str(l));
-                obj.humanAnglePlots(l) = plot(0, 0, 'color', [1, (l-1)/obj.mBodyDofs, 0] * .5, 'linewidth', 2, 'DisplayName', 'human');
+%                 obj.humanAnglePlots(l) = plot(0, 0, 'color', [1, (l-1)/obj.mBodyDofs, 0] * .5, 'linewidth', 2, 'DisplayName', 'human');
             end
             for l = 1 : obj.mBodyDofs
                 obj.uJointPlots(l) = plot(0, 0, 'color', [1, (l-1)/obj.mBodyDofs, 0], 'Linestyle', ':', 'Linewidth', 1);
@@ -203,11 +203,11 @@ classdef PostureTimeSeriesFigure
                     set(obj.thetaPlots(i),   'xdata', time, 'ydata', postureTimeSeries.theta(i+obj.mContactDofs, 2 : index));
                     set(obj.thetaDotPlots(i),   'xdata', time, 'ydata', postureTimeSeries.thetaDot(i+obj.mContactDofs, 2 : index));
                     set(obj.thetaTwoDotPlots(i),   'xdata', time, 'ydata', postureTimeSeries.thetaTwoDot(i+obj.mContactDofs, 2 : index));
-                    if obj.isDrawingHuman
-                        set(obj.humanAnglePlots(i), 'xdata', obj.humanTimeData,  'ydata', obj.humanAngleData(i, :));
-                    else
-                        set(obj.humanAnglePlots(i), 'xdata', 0,  'ydata', 0);
-                    end
+%                     if obj.isDrawingHuman
+%                         set(obj.humanAnglePlots(i), 'xdata', obj.humanTimeData,  'ydata', obj.humanAngleData(i, :));
+%                     else
+%                         set(obj.humanAnglePlots(i), 'xdata', 0,  'ydata', 0);
+%                     end
                     if obj.mIsDrawingLambda
                         set(obj.lambdaPlots(i), 'xdata', time, 'ydata', postureTimeSeries.lambda(i, 2 : index));
                     else
